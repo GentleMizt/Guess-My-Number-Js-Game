@@ -34,6 +34,10 @@ const displayMessage = (message) => {
   document.querySelector(".message").textContent = message;
 };
 
+const displayNumber = (number) => {
+  document.querySelector(".number").textContent = number;
+};
+
 // Adding an event listner
 // the function that is passed into an event listner is called an event handler
 btnCheck.addEventListener("click", () => {
@@ -47,7 +51,8 @@ btnCheck.addEventListener("click", () => {
   } else if (guess === secretNumber) {
     // document.querySelector(".message").textContent = "🎉 Correct Number!";
     displayMessage("🎉 Correct Number!");
-    document.querySelector(".number").textContent = secretNumber;
+    // document.querySelector(".number").textContent = secretNumber;
+    displayNumber(secretNumber);
     document.querySelector(".body").style.backgroundColor = "#60b347";
     document.querySelector(".number").style.width = "30rem";
 
@@ -125,7 +130,8 @@ btnAgain.addEventListener("click", () => {
   displayMessage("Start guessing...");
 
   document.querySelector(".score").textContent = score;
-  document.querySelector(".number").textContent = "?";
+  // document.querySelector(".number").textContent = "?";
+  displayNumber('?')
   document.querySelector(".number").style.width = "15rem";
   document.querySelector(".guess").value = "";
   document.querySelector(".body").style.backgroundColor = "#222";
