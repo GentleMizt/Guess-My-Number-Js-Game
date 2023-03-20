@@ -47,14 +47,12 @@ btnCheck.addEventListener('click', () => {
     if (score > hscore) {
         hscore = score;
         document.querySelector('.highscore').textContent = hscore;
-    } else{
-
-    }
-
-    // when guess is too high
-  } else if (guess > secretNumber) {
+    } 
+  
+    // When guess is wrong!
+  } else if(guess !== secretNumber){
     if (score > 1) {
-      document.querySelector('.message').textContent = '📈 Too high!';
+      document.querySelector('.message').textContent = guess > secretNumber? '📈 Too high!': '📉 Too low!';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
@@ -62,17 +60,31 @@ btnCheck.addEventListener('click', () => {
       document.querySelector('.score').textContent = 0;
     }
 
-    // When guess is too low
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = '📉 Too low!';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = '💥 You lost the game';
-      document.querySelector('.score').textContent = 0;
-    }
-  }
+  }  
+
+  
+  // when guess is too high
+  //  else if (guess > secretNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.message').textContent = '📈 Too high!';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.message').textContent = '💥 You lost the game';
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+
+  //   // When guess is too low
+  // } else if (guess < secretNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.message').textContent = '📉 Too low!';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.message').textContent = '💥 You lost the game';
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+  // }
 });
 
 
@@ -110,3 +122,7 @@ btnAgain.addEventListener('click', () =>{
 });
 
 // this particular function will only be called anytime that event takes place and that is the clicking of the button
+// Having a lot of repeated codes violates the DRY Principle i.e DO NOT REPEAT YOURSELF Principle
+
+// To get rid of duplicate codes we make use of what we call the REFACTORING METHOD i.e to restructure and improve the code without changing how it works.
+
