@@ -142,3 +142,4 @@ btnAgain.addEventListener("click", () => {
 
 // To get rid of duplicate codes we make use of what we call the REFACTORING METHOD i.e to restructure and improve the code without changing how it works.
 // A good refractoring technique is by creating functions
+
